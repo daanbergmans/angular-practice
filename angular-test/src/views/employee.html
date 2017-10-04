@@ -27,7 +27,7 @@
       </div>
       <div class="row marginTop">
         <div class="col-md-12">
-          <button ng-click="myForm.$valid && vm.addEmployee()">Add employee</button>
+          <button class="btn btn-primary" ng-click="myForm.$valid && vm.addEmployee()">Add employee</button>
         </div>
       </div>
       <div class="alert alert-danger marginTop" ng-show="vm.employeeExists">
@@ -40,6 +40,7 @@
         <ul class="noLiDot" ng-repeat="employee in vm.employees">
           <li>
             {{ "Employee with ID " + employee.ID + " - " + employee.name + " - " + " (" + employee.age + " y/o)" }}
+            <button class="btn btn-danger" ng-click="vm.removeEmployee(employee.ID)">Remove</button>
           </li>
         </ul>
       </div>

@@ -1,8 +1,8 @@
 angular.module("myApp")
 
-  .controller("ContactController", [function() {
+  .controller("ContactController", function() {
     var vm = this;
 
     vm.developer = "Daan Bergmans";
-    
-  }]);
+
+  });
