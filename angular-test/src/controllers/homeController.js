@@ -15,8 +15,6 @@ angular.module("myApp")
       vm.name = names[index];
     }
 
-    //test
-
     timer = $interval(function() {
       changeRandomName();
     }.bind(this), 500);
