@@ -1,7 +1,3 @@
-<header>
-  <div id="navBar" ng-include="'views/navigation.html'"></div>
-</header>
-
 <div class="container">
   <div class="jumbotron">
 
@@ -33,6 +29,9 @@
         <div class="col-md-12">
           <button ng-click="myForm.$valid && vm.addEmployee()">Add employee</button>
         </div>
+      </div>
+      <div class="alert alert-danger marginTop" ng-show="vm.employeeExists">
+        User already exists!
       </div>
     </form>
 
