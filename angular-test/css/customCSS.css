@@ -1,0 +1,38 @@
+body {
+  background-color: white;
+}
+
+.content {
+  color: white;
+  margin-top: 15px;
+}
+
+.vcenter {
+    text-align: center;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.jumbotron {
+  text-align: center;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+.marginTop {
+  margin-top: 10px;
+}
+
+.noLiDot {
+  list-style: none;
+}

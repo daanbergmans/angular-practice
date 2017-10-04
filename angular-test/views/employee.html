@@ -1,0 +1,50 @@
+<header>
+  <div id="navBar" ng-include="'views/navigation.html'"></div>
+</header>
+
+<div class="container">
+  <div class="jumbotron">
+
+    <div class="row">
+      <div class="col-md-4">
+        <p>ID:</p>
+      </div>
+      <div class="col-md-4">
+        <p>Name:</p>
+      </div>
+      <div class="col-md-4">
+        <p>Age:</p>
+      </div>
+    </div>
+
+    <form name="myForm">
+      <div class="row">
+        <div class="col-md-4">
+          <input type="text" ng-model="vm.ID" ng-required="true" />
+        </div>
+        <div class="col-md-4">
+          <input type="text" ng-model="vm.name" ng-required="true" />
+        </div>
+        <div class="col-md-4">
+          <input type="text" ng-model="vm.age" ng-required="true" />
+        </div>
+      </div>
+      <div class="row marginTop">
+        <div class="col-md-12">
+          <button ng-click="myForm.$valid && vm.addEmployee()">Add employee</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="row marginTop">
+      <div class="col-md-12">
+        <ul class="noLiDot" ng-repeat="employee in vm.employees">
+          <li>
+            {{ "Employee with ID " + employee.ID + " - " + employee.name + " - " + " (" + employee.age + " y/o)" }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
