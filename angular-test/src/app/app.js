@@ -12,15 +12,20 @@ angular.module("myApp", ["ngRoute"])
             controller: 'HomeController',
             controllerAs: 'vm'
         })
-        .when('/contact', {
-            templateUrl: 'src/views/contact.html',
-            controller: 'ContactController',
-            controllerAs: 'vm'
-        })
         .when('/employee', {
           templateUrl: 'src/views/employee.html',
           controller: 'EmployeeController',
           controllerAs: 'vm'
+        })
+        .when('/shopping', {
+          templateUrl: 'src/views/shopping.html',
+          controller: 'ShoppingController',
+          controllerAs: 'vm'
+        })
+        .when('/contact', {
+            templateUrl: 'src/views/contact.html',
+            controller: 'ContactController',
+            controllerAs: 'vm'
         })
         .otherwise({
             redirectTo: '/'

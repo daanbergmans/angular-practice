@@ -36,3 +36,15 @@ body {
 .noLiDot {
   list-style: none;
 }
+
+.bold {
+  font-weight: bold;
+}
+
+.centerInputText {
+  text-align: center;
+}
+
+#jumbo {
+  padding-bottom: 5px;
+}

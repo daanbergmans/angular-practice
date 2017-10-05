@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="jumbotron" id="jumbo">
+    <div class="row">
+      <div class="col-md-4">
+        <p>
+          Search for a product:
+        </p>
+      </div>
+      <div class="col-md-4">
+        <input type="text" ng-model="vm.searchTerm" />
+        <div class="alert alert-danger marginTop" ng-show="vm.productDoesntExist">
+          Non-existing product or added already!
+        </div>
+      </div>
+      <div class="col-md-4">
+        <button ng-click="vm.search()" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="row bold">
+      <div class="col-md-3">
+        Name &amp; price:
+      </div>
+      <div class="col-md-3">
+        Amount:
+      </div>
+      <div class="col-md-3">
+        Total:
+      </div>
+      <div class="col-md-3">
+        Remove:
+      </div>
+    </div>
+    <div class="row marginTop" ng-repeat="product in vm.selectedProducts">
+      <div class="col-md-3">
+        {{ product.name + " : "}} {{ product.price | currency }}
+      </div>
+      <div class="col-md-3">
+        <input class="centerInputText" type="number" ng-model="product.quantity" />
+      </div>
+      <div class="col-md-3">
+        {{ product.quantity * product.price | currency }}
+      </div>
+      <div class="col-md-3">
+        <button ng-click="vm.remove(product)" class="btn btn-danger">Remove</button>
+      </div>
+    </div>
+
+    <div class="alert alert-info marginTop">
+      Products currently limited to product 1, product 2 and product 3!
+    </div>
+  </div>
+</div>

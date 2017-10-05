@@ -25,7 +25,6 @@ angular.module("myApp")
         timer = null;
         vm.pauseText = "Resume";
         paused = true;
-        console.log("1");
       } else {
         if (timer === null) {
           timer = $interval(function() {
@@ -33,7 +32,6 @@ angular.module("myApp")
           }.bind(this), 500);
           vm.pauseText = "Pause";
           paused = false;
-          console.log("2");
         }
       }
     }
