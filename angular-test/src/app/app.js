@@ -22,6 +22,11 @@ angular.module("myApp", ["ngRoute"])
           controller: 'ShoppingController',
           controllerAs: 'vm'
         })
+        .when('/calculator', {
+            templateUrl: 'src/views/calculator.html',
+            controller: 'CalculatorController',
+            controllerAs: 'vm'
+        })
         .when('/contact', {
             templateUrl: 'src/views/contact.html',
             controller: 'ContactController',

@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Calculation:</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <input ng-model="vm.calculationString" type="text" disabled />
+      </div>
+    </div>
+    <div class="row marginTopSmall">
+      <div class="col-md-12">
+        <button class="btn btn-secondary" ng-click="vm.addToCalculation('1')">1</button>
+        <button class="btn btn-secondary" ng-click="vm.addToCalculation('2')">2</button>
+        <button class="btn btn-secondary" ng-click="vm.addToCalculation('3')">3</button>
+      </div>
+    </div>
+    <div class="row marginTopSmall">
+      <div class="col-md-12">
+        <button class="btn btn-secondary" ng-click="vm.addToCalculation('4')">4</button>
+        <button class="btn btn-secondary" ng-click="vm.addToCalculation('5')">5</button>
+        <button class="btn btn-secondary" ng-click="vm.addToCalculation('6')">6</button>
+      </div>
+    </div>
+    <div class="row marginTopSmall">
+      <div class="col-md-12">
+        <button class="btn btn-secondary" ng-click="vm.addToCalculation('7')">7</button>
+        <button class="btn btn-secondary" ng-click="vm.addToCalculation('8')">8</button>
+        <button class="btn btn-secondary" ng-click="vm.addToCalculation('9')">9</button>
+      </div>
+    </div>
+    <div class="row marginTopSmall">
+      <div class="col-md-12">
+        <button class="btn btn-secondary" ng-click="vm.addToCalculation('+')">+</button>
+        <button class="btn btn-secondary" ng-click="vm.addToCalculation('0')">0</button>
+        <button class="btn btn-secondary" ng-click="vm.addToCalculation('-')">-</button>
+      </div>
+    </div>
+    <div class="row marginTopSmall">
+      <div class="col-md-12">
+        <button ng-click="vm.calculate()" class="btn btn-primary">Calculate</button>
+        <button ng-click="vm.clear()" class="btn btn-danger">Clear</button>
+      </div>
+    </div>
+    <div class="row marginTopSmall">
+      <div class="col-md-12">
+        {{ vm.result }}
+      </div>
+    </div>
+    <div class="row marginTopSmall">
+      <div class="col-md-12">
+        <div class="alert alert-danger marginTop" ng-show="vm.stringNotValid">
+          Make sure the calculation is correct!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

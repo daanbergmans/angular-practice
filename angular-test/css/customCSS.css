@@ -33,6 +33,10 @@ body {
   margin-top: 25px;
 }
 
+.marginTopSmall {
+  margin-top: 10px;
+}
+
 .noLiDot {
   list-style: none;
 }
