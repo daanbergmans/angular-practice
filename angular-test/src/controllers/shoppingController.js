@@ -1,20 +1,27 @@
 angular.module("myApp")
 
-  .controller("ShoppingController", function() {
+  .controller("ShoppingController", ["DataService", function(DataService) {
     var vm = this;
 
-    var sourceProducts = [
-      {"name" : "product 1", "price" : 1, "quantity" : 1},
-      {"name" : "product 2", "price" : 2, "quantity" : 1},
-      {"name" : "product 3", "price" : 3, "quantity" : 1}
-    ];
+    /* LOCAL VARIABLE ASSIGNMENTS */
 
-    var usableProducts = sourceProducts.slice();
+    var usableProducts = DataService.getProductData().slice();
+
+    /* ANGULAR VARIABLE ASSIGNMENTS */
 
     vm.productDoesntExist = false;
     vm.selectedProducts = [];
+    vm.subtotal = 0;
 
-    vm.search = function() {
+    /* FUNCTION ASSIGNMENTS */
+
+    vm.search = search;
+    vm.remove = remove;
+    vm.changeQty = qtyRemove;
+
+    /* FUNCTIONS */
+
+    function search() {
       var foundProduct = null;
 
       usableProducts.forEach(function(product) {
@@ -27,6 +34,7 @@ angular.module("myApp")
       if (foundProduct != null) {
         vm.productDoesntExist = false;
         vm.selectedProducts.push(foundProduct);
+        foundProduct.quantity = 1;
 
         var index = usableProducts.indexOf(foundProduct);
 
@@ -34,6 +42,7 @@ angular.module("myApp")
           usableProducts.splice(index, 1);
         }
 
+        getTotalByQuantity();
         vm.productDoesntExist = false;
       } else {
         vm.productDoesntExist = true;
@@ -42,13 +51,32 @@ angular.module("myApp")
       vm.searchTerm = "";
     }
 
-    vm.remove = function(product) {
+    function remove(product) {
       var index = vm.selectedProducts.indexOf(product);
 
       if (index > -1) {
         vm.selectedProducts.splice(index, 1);
         usableProducts.push(product);
+        getTotalByQuantity();
       }
     }
 
-  });
+    function qtyRemove(product, quantity) {
+      if (quantity <= 0) {
+        remove(product);
+      } else {
+        getTotalByQuantity();
+      }
+    }
+
+    function getTotalByQuantity() {
+      var total = 0;
+
+      vm.selectedProducts.forEach(function(product) {
+        total += (product.price * product.quantity);
+      });
+
+      vm.subtotal = total;
+    }
+
+  }]);

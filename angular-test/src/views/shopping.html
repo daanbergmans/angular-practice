@@ -19,7 +19,7 @@
 
     <hr />
 
-    <div class="row bold">
+    <div class="row bold" ng-show="vm.selectedProducts.length != 0">
       <div class="col-md-3">
         Name &amp; price:
       </div>
@@ -33,18 +33,25 @@
         Remove:
       </div>
     </div>
+
     <div class="row marginTop" ng-repeat="product in vm.selectedProducts">
       <div class="col-md-3">
-        {{ product.name + " : "}} {{ product.price | currency }}
+        {{ product.name + " : "}} {{ product.price | currency : "€" }}
       </div>
       <div class="col-md-3">
-        <input class="centerInputText" type="number" ng-model="product.quantity" />
+        <input class="centerInputText" type="number" ng-model="product.quantity" ng-change="vm.changeQty(product, product.quantity)" />
       </div>
       <div class="col-md-3">
-        {{ product.quantity * product.price | currency }}
+        {{ product.quantity * product.price | currency : "€" }}
       </div>
       <div class="col-md-3">
         <button ng-click="vm.remove(product)" class="btn btn-danger">Remove</button>
+      </div>
+    </div>
+
+    <div class="row" ng-show="vm.selectedProducts.length != 0">
+      <div class="col-md-3 offset-md-6">
+        <strong>Subtotal:</strong> {{ vm.subtotal | currency : "€" }}
       </div>
     </div>
 
