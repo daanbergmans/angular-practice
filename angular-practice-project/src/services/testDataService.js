@@ -1,6 +1,6 @@
 angular.module("myApp")
 
-  .service("DataService", function() {
+  .service("TestDataService", function() {
 
     var products = [
       {"name" : "Product 1", "price" : 5.00, "quantity" : 1},

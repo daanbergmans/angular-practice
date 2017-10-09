@@ -1,11 +1,11 @@
 angular.module("myApp")
 
-  .controller("ShoppingController", ["DataService", function(DataService) {
+  .controller("ShoppingController", ["TestDataService", function(TestDataService) {
     var vm = this;
 
     /* LOCAL VARIABLE ASSIGNMENTS */
 
-    var usableProducts = DataService.getProductData().slice();
+    var usableProducts = TestDataService.getProductData().slice();
 
     /* ANGULAR VARIABLE ASSIGNMENTS */
 
