@@ -8,8 +8,28 @@ angular.module("myApp")
       {"name" : "Product 3", "price" : 15.49, "quantity" : 1}
     ];
 
+    var employees = [];
+
     this.getProductData = function() {
       return products;
+    }
+
+    this.getEmployees = function() {
+      return employees;
+    }
+
+    this.addEmployee = function(employee) {
+      employees.push(employee);
+    }
+
+    this.removeEmployee = function(employee) {
+      if (employees.length >= 1) {
+        var index = employees.indexOf(employee);
+
+        if (index > -1) {
+          employees.splice(index, 1);
+        }
+      }
     }
 
   });
