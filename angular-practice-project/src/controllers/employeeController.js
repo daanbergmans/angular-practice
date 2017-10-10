@@ -1,24 +1,22 @@
 angular.module("myApp")
 
-  .controller("EmployeeController", ["DataService", function(DataService) {
+  .controller("EmployeeController", ["EmployeeService", function(EmployeeService) {
     var vm = this;
-
-    /* LOCAL VARIABLE ASSIGNMENTS */
-
-    var availableEmployees = DataService.getEmployees();
 
     /* ANGULAR VARIABLE ASSIGNMENTS */
 
     vm.employees = [];
 
-    if (availableEmployees.length >= 1) {
-      vm.employees = DataService.getEmployees();
-    }
-
     /* FUNCTION ASSIGNMENTS */
 
     vm.addEmployee = addEmployee;
     vm.removeEmployee = removeEmployee;
+
+    /* API CALLS */
+
+    let availableEmployees = EmployeeService.getEmployees();
+
+    vm.employees = availableEmployees >= 1 ? availableEmployees : [];
 
     /* FUNCTIONS */
 
@@ -33,11 +31,11 @@ angular.module("myApp")
       });
 
       if (!vm.employeeExists) {
-        var currentEmployee = { "ID" : vm.ID, "name" : vm.name, "age" : vm.age, "salary" : vm.salary }
+        let currentEmployee = { "employee_id" : vm.employee_id, "name" : vm.name, "age" : vm.age, "salary" : vm.salary }
 
         vm.employees.push(currentEmployee);
-        DataService.addEmployee(currentEmployee);
-        vm.ID = "";
+        EmployeeService.addEmployee(currentEmployee);
+        vm.employee_id = "";
         vm.name = "";
         vm.age = "";
         vm.salary = "";
@@ -47,7 +45,7 @@ angular.module("myApp")
 
     function removeEmployee(id) {
       vm.employees.forEach(function(employee, index) {
-        if (employee.ID === id) {
+        if (employee.employee_id === id) {
           vm.employees.splice(index, 1);
         }
       });
