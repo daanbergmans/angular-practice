@@ -5,7 +5,7 @@ angular.module("myApp")
 
     /* LOCAL VARIABLE ASSIGNMENTS */
 
-    var usableProducts = TestDataService.getProductData().slice();
+    let usableProducts = TestDataService.getProductData().slice();
 
     /* ANGULAR VARIABLE ASSIGNMENTS */
 
@@ -22,7 +22,7 @@ angular.module("myApp")
     /* FUNCTIONS */
 
     function search() {
-      var foundProduct = null;
+      let foundProduct = null;
 
       usableProducts.forEach(function(product) {
         if (product.name === vm.searchTerm) {
@@ -36,7 +36,7 @@ angular.module("myApp")
         vm.selectedProducts.push(foundProduct);
         foundProduct.quantity = 1;
 
-        var index = usableProducts.indexOf(foundProduct);
+        let index = usableProducts.indexOf(foundProduct);
 
         if (index > -1) {
           usableProducts.splice(index, 1);
@@ -52,7 +52,7 @@ angular.module("myApp")
     }
 
     function remove(product) {
-      var index = vm.selectedProducts.indexOf(product);
+      let index = vm.selectedProducts.indexOf(product);
 
       if (index > -1) {
         vm.selectedProducts.splice(index, 1);

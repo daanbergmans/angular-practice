@@ -3,15 +3,15 @@ angular.module("myApp")
   .controller("HomeController", ["$interval", function($interval) {
     var vm = this;
 
-    var names = ["Daan", "Jos", "Jeff", "Jaak"];
-    var timer = null;
-    var paused = false;
+    let names = ["Daan", "Jos", "Jeff", "Jaak"];
+    let timer = null;
+    let paused = false;
 
     vm.name = names[0];
     vm.pauseText = "Pause";
 
-    var changeRandomName = function() {
-      var index = Math.round(Math.random() * (names.length - 1));
+    let changeRandomName = function() {
+      let index = Math.round(Math.random() * (names.length - 1));
       vm.name = names[index];
     }
 

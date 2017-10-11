@@ -15,7 +15,7 @@ module.exports = function(app, db) {
   });
 
   app.post('/employees', (req, res) => {
-    const employee = { employee_id : req.body.employee_id, name : req.body.name, age : req.body.age, salary : req.body.salary };
+    const employee = { employeeId : req.body.employeeId, name : req.body.name, age : req.body.age, salary : req.body.salary };
 
     db.collection('employees').insert(employee, (err, result) => {
       if (err) {
@@ -29,7 +29,7 @@ module.exports = function(app, db) {
   app.put('/employees/:id', (req, res) => {
     const id = req.params.id;
     const details = { '_id': new ObjectID(id) };
-    const employee = { employee_id : req.body.employee_id, name : req.body.name, age : req.body.age, salary : req.body.salary };
+    const employee = { employee_id : req.body.employeeId, name : req.body.name, age : req.body.age, salary : req.body.salary };
 
     db.collection('employees').update(details, employee, (err, result) => {
       if (err) {

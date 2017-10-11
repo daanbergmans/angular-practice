@@ -19,7 +19,7 @@
     <form name="myForm">
       <div class="row">
         <div class="col-md-3">
-          <input type="text" ng-model="vm.employee_id" ng-required="true" />
+          <input type="text" ng-model="vm.employeeId" ng-required="true" />
         </div>
         <div class="col-md-3">
           <input type="text" ng-model="vm.name" ng-required="true" />
@@ -45,8 +45,8 @@
       <div class="col-md-12">
         <ul class="noLiDot" ng-repeat="employee in vm.employees">
           <li>
-            {{ "Employee with ID " + employee.ID + " - " + employee.name + " - " + employee.age + " y/o - " }} {{ employee.salary | currency : "€" }} {{ "/ month" }}
-            <button class="btn btn-danger" ng-click="vm.removeEmployee(employee.ID)">Remove</button>
+            {{ "Employee with ID " + employee.employeeId + " - " + employee.name + " - " + employee.age + " y/o - " }} {{ employee.salary | currency : "€" }} {{ "/ month" }}
+            <button class="btn btn-danger" ng-click="vm.removeEmployee(employee.employeeId)">Remove</button>
           </li>
         </ul>
       </div>
