@@ -9,7 +9,16 @@ angular.module("myApp")
 
     /* ANGULAR VARIABLE ASSIGNMENTS */
 
-    vm.employees = availableEmployees.length >= 1 ? availableEmployees : [];
+    if (availableEmployees.length >= 1) {
+      vm.employees = availableEmployees;
+      vm.showSeparation = true;
+    } else {
+      vm.employees = [];
+      vm.showSeparation = false;
+    }
+
+    /* INITIALIZATIONS */
+
     getNewId();
 
     /* FUNCTION ASSIGNMENTS */
@@ -33,16 +42,21 @@ angular.module("myApp")
         let currentEmployee = { "employeeId" : vm.employeeId, "name" : vm.name, "age" : vm.age, "salary" : vm.salary }
 
         vm.employees.push(currentEmployee);
+
         getNewId();
+
         vm.name = "";
         vm.age = "";
         vm.salary = "";
+
+        vm.showSeparation = true;
       }
     }
 
     function removeEmployee(id) {
       vm.employees.forEach(function(employee, index) {
         if (employee.employeeId === id) {
+          vm.showSeparation = vm.employees.length == 1 ? false : true;
           vm.employees.splice(index, 1);
           getNewId();
         }

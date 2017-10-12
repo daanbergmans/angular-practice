@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="jumbotron">
+  <div class="jumbotron jumboPadding">
 
     <div class="row">
       <div class="col-md-3">
@@ -19,16 +19,16 @@
     <form name="myForm">
       <div class="row">
         <div class="col-md-3">
-          <input type="text" ng-model="vm.employeeId" disabled />
+          <input class="centerInputText" type="text" ng-model="vm.employeeId" disabled />
         </div>
         <div class="col-md-3">
-          <input type="text" ng-model="vm.name" ng-required="true" />
+          <input class="centerInputText" type="text" ng-model="vm.name" ng-required="true" />
         </div>
         <div class="col-md-3">
-          <input type="text" ng-model="vm.age" ng-required="true" />
+          <input class="centerInputText" type="text" ng-model="vm.age" ng-required="true" />
         </div>
         <div class="col-md-3">
-          <input type="text" ng-model="vm.salary" ng-required="true" />
+          <input class="centerInputText" type="text" ng-model="vm.salary" ng-required="true" />
         </div>
       </div>
       <div class="row marginTop">
@@ -40,6 +40,8 @@
         User already exists!
       </div>
     </form>
+
+    <hr ng-show="vm.showSeparation" />
 
     <div class="row marginTop">
       <div class="col-md-12">
