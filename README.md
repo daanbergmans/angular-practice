@@ -1,7 +1,9 @@
 # Repository for angular practice
 ### Angular project
-1. Install atom-live-server package.
-2. Run through Packages > atom-live-server > Start server
+1. run 'npm install' in root
+2. Install atom-live-server package on Atom
+3. Run through Packages > atom-live-server > Start server  
+4. Run tests with npm test when necessary
 ### REST-service project
 1. Create a free database on https://mlab.com/home
 2. run 'npm install' in root
