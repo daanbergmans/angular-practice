@@ -2,7 +2,6 @@ angular.module("myApp")
 
   .service("StatisticsService", ["$http", function($http) {
 
-    //To check
     this.createPageView = function(page) {
       $http({
         method : "POST",
@@ -15,7 +14,6 @@ angular.module("myApp")
       });
     }
 
-    //To make
     this.getPageViews = function(page) {
       $http({
         method : "GET",
@@ -27,7 +25,6 @@ angular.module("myApp")
       });
     }
 
-    //To make
     this.addPageView = function(page) {
       $http({
         method : "PUT",
