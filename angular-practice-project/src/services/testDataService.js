@@ -2,13 +2,13 @@ angular.module("myApp")
 
   .service("TestDataService", function() {
 
-    var products = [
-      {"name" : "Product 1", "price" : 5.00, "quantity" : 1},
-      {"name" : "Product 2", "price" : 5.99, "quantity" : 1},
-      {"name" : "Product 3", "price" : 15.49, "quantity" : 1}
+    const products = [
+      { "name" : "Product 1", "price" : 5.00, "quantity" : 1 },
+      { "name" : "Product 2", "price" : 5.99, "quantity" : 1 },
+      { "name" : "Product 3", "price" : 15.49, "quantity" : 1 }
     ];
 
-    var employees = [];
+    const employees = [];
 
     this.getProductData = function() {
       return products;

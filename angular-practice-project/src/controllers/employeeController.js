@@ -1,15 +1,16 @@
 angular.module("myApp")
 
-  .controller("EmployeeController", ["EmployeeService", function(EmployeeService) {
+  .controller("EmployeeController", ["TestDataService", "EmployeeService", function(TestDataService, EmployeeService) {
     let vm = this;
 
     /* API CALLS */
 
-    let availableEmployees = EmployeeService.getEmployees();
+    let availableEmployees = TestDataService.getEmployees();
 
     /* ANGULAR VARIABLE ASSIGNMENTS */
 
-    vm.employees = availableEmployees >= 1 ? availableEmployees : [];
+    vm.employees = availableEmployees.length >= 1 ? availableEmployees : [];
+    getNewId();
 
     /* FUNCTION ASSIGNMENTS */
 
@@ -32,21 +33,30 @@ angular.module("myApp")
         let currentEmployee = { "employeeId" : vm.employeeId, "name" : vm.name, "age" : vm.age, "salary" : vm.salary }
 
         vm.employees.push(currentEmployee);
-        EmployeeService.addEmployee(currentEmployee);
-        vm.employeeId = "";
+        getNewId();
         vm.name = "";
         vm.age = "";
         vm.salary = "";
       }
-
     }
 
     function removeEmployee(id) {
       vm.employees.forEach(function(employee, index) {
         if (employee.employeeId === id) {
           vm.employees.splice(index, 1);
+          getNewId();
         }
       });
+    }
+
+    function getNewId() {
+      let newId = 0;
+
+      vm.employees.forEach(function(employee) {
+        newId = Math.max(newId, employee.employeeId);
+      });
+
+      vm.employeeId = newId + 1;
     }
 
   }]);

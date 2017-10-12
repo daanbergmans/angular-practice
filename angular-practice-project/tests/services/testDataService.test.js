@@ -17,7 +17,7 @@ describe('TestTestDataService', function() {
   });
 
   it ('should return an array with 1 employee when an employee has been added ', function() {
-    let employee = { 'id' : 1234, 'name' : 'Daan', 'age' : 20, 'salary' : 200000 };
+    let employee = { 'employeeId' : 1234, 'name' : 'Daan', 'age' : 20, 'salary' : 200000 };
 
     TestDataService.addEmployee(employee);
 
@@ -25,8 +25,8 @@ describe('TestTestDataService', function() {
   });
 
   it ('should remove an employee when an employee is removed', function() {
-    let employee1 = { 'id' : 1234, 'name' : 'Daan', 'age' : 20, 'salary' : 200000 };
-    let employee2 = { 'id' : 1235, 'name' : 'Jos', 'age' : 45, 'salary' : 1 };
+    let employee1 = { 'employeeId' : 1234, 'name' : 'Daan', 'age' : 20, 'salary' : 200000 };
+    let employee2 = { 'employeeId' : 1235, 'name' : 'Jos', 'age' : 45, 'salary' : 1 };
 
     TestDataService.addEmployee(employee1);
     TestDataService.addEmployee(employee2);
