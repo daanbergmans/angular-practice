@@ -1,7 +1,7 @@
 angular.module("myApp")
 
   .controller("HomeController", ["$interval", function($interval) {
-    var vm = this;
+    let vm = this;
 
     let names = ["Daan", "Jos", "Jeff", "Jaak"];
     let timer = null;
@@ -9,17 +9,14 @@ angular.module("myApp")
 
     vm.name = names[0];
     vm.pauseText = "Pause";
+    vm.pause = pause;
 
-    let changeRandomName = function() {
+    function changeRandomName() {
       let index = Math.round(Math.random() * (names.length - 1));
       vm.name = names[index];
     }
 
-    timer = $interval(function() {
-      changeRandomName();
-    }.bind(this), 500);
-
-    vm.pause = function() {
+    function pause() {
       if (!paused) {
         $interval.cancel(timer);
         timer = null;
@@ -35,5 +32,9 @@ angular.module("myApp")
         }
       }
     }
+
+    timer = $interval(function() {
+      changeRandomName();
+    }.bind(this), 500);
 
   }]);

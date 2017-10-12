@@ -1,7 +1,7 @@
 angular.module("myApp")
 
   .controller("CalculatorController", function() {
-    var vm = this;
+    let vm = this;
 
     vm.calculationString = "";
     vm.stringNotValid = false;

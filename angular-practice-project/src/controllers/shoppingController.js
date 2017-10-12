@@ -1,7 +1,7 @@
 angular.module("myApp")
 
   .controller("ShoppingController", ["TestDataService", function(TestDataService) {
-    var vm = this;
+    let vm = this;
 
     /* LOCAL VARIABLE ASSIGNMENTS */
 

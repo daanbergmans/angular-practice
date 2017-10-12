@@ -1,7 +1,7 @@
 angular.module("myApp")
 
   .controller("EmployeeController", ["EmployeeService", function(EmployeeService) {
-    var vm = this;
+    let vm = this;
 
     /* API CALLS */
 
