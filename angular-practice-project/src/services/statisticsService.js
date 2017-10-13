@@ -9,7 +9,7 @@ angular.module("myApp")
         data : page
       }).then(function mySuccess(response) {
         return response.data;
-      }, function myError(response) {
+      }).catch(function myError(response) {
         return -1;
       });
     }
@@ -20,7 +20,7 @@ angular.module("myApp")
         url : "http://localhost:9000/pageviews"
       }).then(function mySuccess(response) {
         return response.data;
-      }, function myError(response) {
+      }).catch(function myError(response) {
         return -1;
       });
     }
@@ -31,7 +31,7 @@ angular.module("myApp")
         url : "http://localhost:9000/pageviews"
       }).then(function mySuccess(response) {
         return response.data;
-      }, function myError(response) {
+      }).catch(function myError(response) {
         return -1;
       });
     }

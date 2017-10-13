@@ -1,25 +1,11 @@
 angular.module("myApp")
 
-  .controller("EmployeeController", ["TestDataService", "EmployeeService", function(TestDataService, EmployeeService) {
+  .controller("EmployeeController", ["EmployeeFactory", function(EmployeeFactory) {
     let vm = this;
 
-    /* API CALLS */
+    /* INITIALIZATION */
 
-    let availableEmployees = TestDataService.getEmployees();
-
-    /* ANGULAR VARIABLE ASSIGNMENTS */
-
-    if (availableEmployees.length >= 1) {
-      vm.employees = availableEmployees;
-      vm.showSeparation = true;
-    } else {
-      vm.employees = [];
-      vm.showSeparation = false;
-    }
-
-    /* INITIALIZATIONS */
-
-    getNewId();
+    getEmployees();
 
     /* FUNCTION ASSIGNMENTS */
 
@@ -42,6 +28,7 @@ angular.module("myApp")
         let currentEmployee = { "employeeId" : vm.employeeId, "name" : vm.name, "age" : vm.age, "salary" : vm.salary }
 
         vm.employees.push(currentEmployee);
+        EmployeeFactory.addEmployee(currentEmployee);
 
         getNewId();
 
@@ -58,7 +45,9 @@ angular.module("myApp")
         if (employee.employeeId === id) {
           vm.showSeparation = vm.employees.length == 1 ? false : true;
           vm.employees.splice(index, 1);
+          EmployeeFactory.removeEmployee(employee);
           getNewId();
+          return;
         }
       });
     }
@@ -71,6 +60,28 @@ angular.module("myApp")
       });
 
       vm.employeeId = newId + 1;
+    }
+
+    function getEmployees() {
+      EmployeeFactory.getEmployees().then(function (employees) {
+
+        /* CHECKS */
+
+        if (employees.data.length >= 1) {
+          vm.employees = employees.data;
+          vm.showSeparation = true;
+        } else {
+          vm.employees = [];
+          vm.showSeparation = false;
+        }
+
+        /* INITIALIZATION */
+
+        getNewId();
+
+      }, function (error) {
+        console.log(error);
+      });
     }
 
   }]);
