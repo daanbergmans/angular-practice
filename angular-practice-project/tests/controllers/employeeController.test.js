@@ -17,7 +17,7 @@ describe('TestEmployeeController', function() {
   it('should have 1 employee when a new employee is added', function() {
     let controller = $controller('EmployeeController', {$scope:{}});
 
-    controller.addEmployee({ "employee_id" : 1, "name" : "Daan", "age" : 20, "salary" : 200000 });
+    controller.addEmployee({ "employeeId" : 1, "name" : "Daan", "age" : 20, "salary" : 200000 });
 
     expect(controller.employees.length).toEqual(1);
   });
