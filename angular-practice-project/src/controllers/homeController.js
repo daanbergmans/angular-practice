@@ -1,5 +1,10 @@
+// The controller contains all the logic which is executed behind the corresponding view, and where the values are found
+// which will be bound to the {{ vm.name }} variable for example
+
+//Get the 'myApp' module you defined on top in your html file
 angular.module("myApp")
 
+  // Inject the $interval dependecy to do something every x milliseconds
   .controller("HomeController", ["$interval", function($interval) {
     let vm = this;
 
@@ -38,3 +43,5 @@ angular.module("myApp")
     }.bind(this), 500);
 
   }]);
+
+  // Go to factories/employeeFactory.js or explore other controllers and their corresponding views
