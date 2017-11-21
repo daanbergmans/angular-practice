@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<!-- Your app is called 'myApp' at the moment -->
 <html ng-app="myApp">
 
 <head>
   <title>Angular test</title>
 
-  <!-- All imports, don't forget to link any new controller, service, factory,... files you may create -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/css/customCSS.css" />
 
@@ -28,14 +26,9 @@
 </head>
 
 <header>
-  <!-- Include the navigation bar found in 'src/views/navigation.html' -->
   <div id="navBar" ng-include="'src/views/navigation.html'"></div>
 </header>
 
-<!-- Considering AngularJS is all about SPA's (Single page applications), an ng-view is provided to render the views in.
-Note that the content of this div will change, but the navigation bar will stay the same and will not be re-rendered -->
 <div id="view" ng-view></div>
-
-<!-- Now go to app/app.js -->
 
 </html>

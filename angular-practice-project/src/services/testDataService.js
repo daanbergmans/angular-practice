@@ -1,5 +1,3 @@
-// This is an example of a service, as you can see, only static data is returned here, which was initially used for testing.
-
 angular.module("myApp")
 
   .service("TestDataService", function() {
